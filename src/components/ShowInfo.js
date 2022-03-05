@@ -30,6 +30,9 @@ const InfoColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: 0 20px;
+	@media only screen and (max-width: 768px) {
+		align-items: center;
+	}
 `;
 
 const Name = styled.span`
@@ -92,7 +95,7 @@ const ShowInfo = () => {
 		setTimeout(() => {
 			setBooked(true);
 			setLoading(false);
-		}, 3000);
+		}, 1000);
 	};
 
 	return (
@@ -106,14 +109,12 @@ const ShowInfo = () => {
 				<Desc>
 					<b>Rating</b> : {show?.rating?.average}
 				</Desc>
+
 				<Desc>
-					<b>Summary</b> : {show?.summary}
+					<b>Type</b> : {show?.type}
 				</Desc>
 				<Desc>
-					<b>Official Site</b> :{" "}
-					<a href={show?.officialSite} target='_blank' rel='noreferrer'>
-						{show?.officialSite}
-					</a>
+					<b>Premiered</b> : {show?.premiered}
 				</Desc>
 				<BookButton onClick={() => setOpenModal(true)}>Book Premier</BookButton>
 			</InfoColumn>
